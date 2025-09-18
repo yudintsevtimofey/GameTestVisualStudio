@@ -1,12 +1,15 @@
 
-
-#include <SFML/Graphics.hpp>
+#include "source.h"
+#include "Entity.h"
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode({ 200, 200 }), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    sf::RenderWindow window(sf::VideoMode({ 1080, 720 }), "SFML works!");
+    std::vector<Entity> executionList;
+    executionList.push_back(Entity());
+    executionList.push_back(Entity(100, sf::Color::Red, 400, 400));
+    executionList.push_back(Entity(100, sf::Color::Green, 200, 200));
+    executionList.push_back(Entity(100, sf::Color::Yellow, 100, 400));
 
     while (window.isOpen())
     {
@@ -17,7 +20,10 @@ int main()
         }
 
         window.clear();
-        window.draw(shape);
+        for (auto e : executionList) {
+            window.draw(e.getShape());
+            e.Update();
+        }
         window.display();
     }
 }
