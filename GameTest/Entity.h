@@ -16,6 +16,7 @@ private:
 	}
 	
 public:
+	
 	Entity() {
 		Start(sf::Color::Blue);
 	}
@@ -26,13 +27,26 @@ public:
 		Start(color);
 	}
 	
+	//Constant updates for character
+	void Update() {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
+			xPos -= 1.f;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
+			xPos += 1.f;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
+			yPos -= 1.f;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
+			yPos += 1.f;
+		}
+		body.setPosition({ xPos,yPos });
+	}
 	auto getShape() {
 		return body;
 	}
-	//Constant updates for character
-	void Update() {
-		
-	}
+	
 };
 
 

@@ -20,10 +20,12 @@ int main()
         }
 
         window.clear();
-        for (auto e : executionList) {
-            window.draw(e.getShape());
+        for (auto& e : executionList) {
             e.Update();
+            window.draw(e.getShape());
         }
         window.display();
+
+        
     }
 }
