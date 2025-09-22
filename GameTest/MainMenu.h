@@ -3,12 +3,13 @@ class MainMenu
 {
 private:
 	sf::RectangleShape background;
-	sf::RectangleShape playButton;
 	sf::RectangleShape settingsButton;
 	sf::RectangleShape exitButton;
 
 
 public:
+
+	
 
 	//Initializing the Main Menu screen, setting all values for buttons and background
 
@@ -22,9 +23,12 @@ public:
 		background.setPosition({ 0,0 });
 		background.setSize({ float(windowSize.x), float(windowSize.y) });
 
-		playButton.setFillColor(sf::Color::Red);
-		playButton.setPosition({ float(windowSize.x)/2, float(windowSize.y)/26 * 14});
-		playButton.setSize({ float(windowSize.x)/10, float(windowSize.y)/26 * 3 });
+		sf::Texture playButtonTexture;
+		playButtonTexture.loadFromFile("./textures/MainMenuPlayButton.png");
+		playButtonTexture.resize({ playButtonTexture.getSize().x * windowSize.y/playButtonTexture.getSize().y, windowSize.y / 26 * 3});
+		sf::Sprite p(playButtonTexture);
+		p.setTexture(playButtonTexture);
+		p.setPosition({ float(windowSize.x)/2, float(windowSize.y)/26 * 14});
 
 		settingsButton.setFillColor(sf::Color::Red);
 		settingsButton.setPosition({ float(windowSize.x)/2, float(windowSize.y) / 26 * 18});
@@ -37,11 +41,19 @@ public:
 
 	void Update(sf::RenderWindow &w) {
 		background.setSize({ float(w.getSize().x), float(w.getSize().y)});
-		playButton.setSize({ float(w.getSize().x) / 10, float(w.getSize().y) / 26 * 3 });
 		settingsButton.setSize({ float(w.getSize().x) / 10, float(w.getSize().y) / 26 * 3 });
 		exitButton.setSize({ float(w.getSize().x) / 10, float(w.getSize().y) / 26 * 3 });
+
+		sf::Texture playButtonTexture;
+		playButtonTexture.loadFromFile("./textures/MainMenuPlayButton.png");
+		playButtonTexture.resize({ playButtonTexture.getSize().x * w.getSize().y / playButtonTexture.getSize().y, w.getSize().y / 26 * 3 });
+
+		sf::Sprite p(playButtonTexture);
+		p.setTexture(playButtonTexture);
+		p.setPosition({ float(w.getSize().x) / 2, float(w.getSize().y) / 26 * 14 });
+
 		w.draw(background);
-		w.draw(playButton);
+		w.draw(p);
 		w.draw(settingsButton);
 		w.draw(exitButton);
 	}
