@@ -29,7 +29,7 @@ public:
 	
 	//Constant updates for character
 	void Update() {
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
+		/**/if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
 			xPos -= 1.f;
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
@@ -41,6 +41,9 @@ public:
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
 			yPos += 1.f;
 		}
+		/**/
+		
+		
 		body.setPosition({ xPos,yPos });
 	}
 	auto getShape() {

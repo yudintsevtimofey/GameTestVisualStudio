@@ -4,7 +4,12 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode({ 1080, 720 }), "SFML works!");
+
+   
+
+   
+
+    sf::RenderWindow window(sf::VideoMode({ 1920, 1080 }), "GameTest", sf::Style::Default, sf::State::Fullscreen);
     std::vector<Entity> executionList;
     executionList.push_back(Entity());
     executionList.push_back(Entity(100, sf::Color::Red, 400, 400));
@@ -13,17 +18,24 @@ int main()
 
     while (window.isOpen())
     {
+       
+
+
         while (const std::optional event = window.pollEvent())
         {
             if (event->is<sf::Event::Closed>())
                 window.close();
         }
-
         window.clear();
+
         for (auto& e : executionList) {
+               
             e.Update();
             window.draw(e.getShape());
         }
+
+        
+        
         window.display();
 
         
