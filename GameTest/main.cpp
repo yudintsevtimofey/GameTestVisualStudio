@@ -1,6 +1,10 @@
 
 #include "source.h"
 #include "Entity.h"
+#include "BattleBackground.h"
+#include "Camera.h"
+#include "MainMenu.h"
+#include "Tower.h"
 
 int main()
 {
@@ -15,6 +19,7 @@ int main()
     executionList.push_back(Entity(100, sf::Color::Red, 400, 400));
     executionList.push_back(Entity(100, sf::Color::Green, 200, 200));
     executionList.push_back(Entity(100, sf::Color::Yellow, 100, 400));
+    MainMenu test(window.getSize());
 
     while (window.isOpen())
     {
@@ -33,6 +38,7 @@ int main()
             e.Update();
             window.draw(e.getShape());
         }
+        test.Update(window);
 
         
         
