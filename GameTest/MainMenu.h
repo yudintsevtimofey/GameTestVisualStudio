@@ -23,7 +23,7 @@ public:
 		background.setPosition({ 0,0 });
 		background.setSize({ float(windowSize.x), float(windowSize.y) });
 
-		//playButton.setFillColor(sf::Color::Red);
+		
 		playButtonTexture.loadFromFile("./textures/MainMenuPlayButton.png");
 		playButton.setTexture(&playButtonTexture);
 		playButton.setPosition({ float(windowSize.x)/2, float(windowSize.y)/26 * 14});
