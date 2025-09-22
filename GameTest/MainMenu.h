@@ -27,7 +27,7 @@ public:
 		playButtonTexture.loadFromFile("./textures/MainMenuPlayButton.png");
 		playButton.setTexture(&playButtonTexture);
 		playButton.setPosition({ float(windowSize.x)/2, float(windowSize.y)/26 * 14});
-		playButton.setSize({ float(windowSize.x)/10, float(windowSize.y)/26 * 3 });
+		playButton.setSize({ float(windowSize.y) / 26 * 3 * (float(playButtonTexture.getSize().x) / float(playButtonTexture.getSize().y)), float(windowSize.y) / 26 * 3});
 
 		settingsButton.setFillColor(sf::Color::Red);
 		settingsButton.setPosition({ float(windowSize.x)/2, float(windowSize.y) / 26 * 18});
@@ -40,7 +40,7 @@ public:
 
 	void Update(sf::RenderWindow &w) {
 		background.setSize({ float(w.getSize().x), float(w.getSize().y)});
-		playButton.setSize({ float(w.getSize().x) / 10, float(w.getSize().y) / 26 * 3 });
+		playButton.setSize({ float(w.getSize().y) / 26 * 3 * (float(playButtonTexture.getSize().x) / float(playButtonTexture.getSize().y)), float(w.getSize().y) / 26 * 3 });
 		settingsButton.setSize({ float(w.getSize().x) / 10, float(w.getSize().y) / 26 * 3 });
 		exitButton.setSize({ float(w.getSize().x) / 10, float(w.getSize().y) / 26 * 3 });
 		w.draw(background);
