@@ -3,6 +3,7 @@ class MainMenu
 {
 private:
 	sf::RectangleShape background;
+	sf::Texture playButtonTexture;
 	sf::RectangleShape playButton;
 	sf::RectangleShape settingsButton;
 	sf::RectangleShape exitButton;
@@ -22,7 +23,9 @@ public:
 		background.setPosition({ 0,0 });
 		background.setSize({ float(windowSize.x), float(windowSize.y) });
 
-		playButton.setFillColor(sf::Color::Red);
+		//playButton.setFillColor(sf::Color::Red);
+		playButtonTexture.loadFromFile("./textures/MainMenuPlayButton.png");
+		playButton.setTexture(&playButtonTexture);
 		playButton.setPosition({ float(windowSize.x)/2, float(windowSize.y)/26 * 14});
 		playButton.setSize({ float(windowSize.x)/10, float(windowSize.y)/26 * 3 });
 
