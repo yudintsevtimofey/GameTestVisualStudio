@@ -52,6 +52,29 @@ public:
 		w.draw(settingsButton);
 		w.draw(exitButton);
 	}
+	
+	void Listen(sf::RenderWindow &window) {
+		
 
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
+			float xMouse = float(sf::Mouse::getPosition().x);
+			float yMouse = float(sf::Mouse::getPosition().y);
+			if (xMouse >= float(playButton.getPosition().x) && xMouse <= float(playButton.getPosition().x + playButton.getSize().x) 
+				&& yMouse >= float(playButton.getPosition().y) && yMouse <= float(playButton.getPosition().y + playButton.getSize().y)) {
+				
+
+			}
+			else if (xMouse >= float(settingsButton.getPosition().x) && xMouse <= float(settingsButton.getPosition().x + settingsButton.getSize().x)
+				&& yMouse >= float(settingsButton.getPosition().y) && yMouse <= float(settingsButton.getPosition().y + settingsButton.getSize().y)) {
+
+
+			}
+			else if (xMouse >= float(exitButton.getPosition().x) && xMouse <= float(exitButton.getPosition().x + exitButton.getSize().x)
+				&& yMouse >= float(exitButton.getPosition().y) && yMouse <= float(exitButton.getPosition().y + exitButton.getSize().y)) {
+				window.close();
+
+			}
+		}
+	}
 };
 

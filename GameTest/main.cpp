@@ -26,11 +26,11 @@ int main()
        
 
 
-        while (const std::optional event = window.pollEvent())
+       /* while (const std::optional event = window.pollEvent())
         {
             if (event->is<sf::Event::Closed>())
                 window.close();
-        }
+        }*/
         window.clear();
 
         for (auto& e : executionList) {
@@ -39,6 +39,7 @@ int main()
             window.draw(e.getShape());
         }
         test.Update(window);
+        test.Listen(window);
 
         
         
